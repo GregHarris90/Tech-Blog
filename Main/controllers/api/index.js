@@ -8,6 +8,4 @@ router.use('/users', userRoutes);
 router.use('/blogs', blogRoutes);
 router.use('/comments', commentRoutes);
 
-// add additional api routes
-
 module.exports = router;
