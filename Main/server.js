@@ -1,5 +1,5 @@
 // DEPENDENCIES *UNCOMMENT*
-// const path = require('path');
+const path = require('path');
 const express = require('express');
 // const session = require('express-session');
 // const exphbs = require('express-handlebars');
@@ -39,12 +39,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Turn on Express.static to serve public folder (js/css)
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Turn on Express Routes
 app.use(routes);
 
 // Set up PORT
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`connected as id ${connection.threadId}\n`));
-});
+    app.listen(PORT, () => console.log('Now listening'));
+  });
