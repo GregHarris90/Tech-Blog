@@ -10,7 +10,29 @@ router.get('/', async (req, res) => {
         res.json(err);
     });
     const posts = blogData.map((post) => post.get({ plain: true }));
-    res.render('all', { posts });
+    res.render('homepage', { posts });
 });
 
+
+
+// LOGIN ROUTE FOR USER
+
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+    }
+
+    res.render('login');
+});
+
+
+
+
 module.exports = router;
+
+
+
+
+
+
