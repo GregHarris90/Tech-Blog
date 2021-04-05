@@ -2,6 +2,7 @@ const User = require('./User');
 const Blog = require('./Blog');
 const Comment = require('./Comment');
 
+// maybe no relationship?
 User.hasMany(Blog, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
@@ -16,6 +17,7 @@ Blog.hasMany(Comment, {
     onDelete: 'CASCADE',
 });
 
+// maybe comment to user?
 Comment.belongsTo(Blog, {
     foreignKey: 'blog_id',
 });
