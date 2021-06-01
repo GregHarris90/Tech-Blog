@@ -1,0 +1,22 @@
+<div>
+    <header>
+        <h2>Welcome back, {{name}}</h2>
+    </header>
+
+    {{#if blog.length}}
+    <div>
+        <h3>Current Posts:</h3>
+        {{#each blogs as |blog|}}
+        <div>
+            <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
+        </div>
+        <div>
+            <button data-id="{{blog.id}}">DELETE</button>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+{{!-- add javascript --}}
+{{!-- <script src="./js/profile.js"></script> --}}
