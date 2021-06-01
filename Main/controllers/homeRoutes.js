@@ -9,6 +9,8 @@ router.get('/', async (req, res) => {
     const blogData = await Blog.findAll().catch((err) => {
         res.json(err);
     });
+
+    console.log(blogData);
     const posts = blogData.map((post) => post.get({ plain: true }));
     res.render('homepage', { posts });
 });

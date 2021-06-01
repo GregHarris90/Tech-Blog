@@ -1,4 +1,4 @@
-// DEPENDENCIES *UNCOMMENT*
+// DEPENDENCIES
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -6,33 +6,33 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers/homeRoutes');
 // const helpers = require('./utils/helpers');
 
-// Set up Sequelize *UNCOMMENT*
+// Set up Sequelize
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars.js engine with custom helpers *UNCOMMENT*
+// Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({});
 
-// Inform Express.js on which template engine to use *UNCOMMENT*
+// Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Session structure for Authentication *UNCOMMENT*
-// const sess = {
-//   secret: 'Super secret secret',
-//   cookie: {},
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize
-//   })
-// };
+// Session structure for Authentication
+const sess = {
+  secret: 'Super secret secret',
+  cookie: { maxAge: 3600 },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
-// Turn on Session *UNCOMMENT*
-// app.use(session(sess));
+// Turn on Session
+app.use(session(sess));
 
 // Turn on Express.json
 app.use(express.json());
