@@ -34,10 +34,11 @@
             <a href="/">HOME</a>
             {{!-- Render Login|Logout (Condition) --}}
             {{#if logged_in}}
-            <a href="/profile">DASHBOARD</a>
+            <a href="/profile">PROFILE</a>
             <button class="no-button" id="logout">LOGOUT</button>
             {{else}}
             <a href="/login">LOGIN</a>
+            <a href="/signup">SIGN-UP</a>
             {{/if}}
         </nav>
     </header>
