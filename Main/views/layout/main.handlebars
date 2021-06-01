@@ -32,10 +32,10 @@
         {{!-- NavBar Links --}}
         <nav>
             <a href="/">HOME</a>
-            <a href="/profile">DASHBOARD</a>
             {{!-- Render Login|Logout (Condition) --}}
             {{#if logged_in}}
-            <a href="/" id="logout">LOGOUT</a>
+            <a href="/profile">DASHBOARD</a>
+            <button class="no-button" id="logout">LOGOUT</button>
             {{else}}
             <a href="/login">LOGIN</a>
             {{/if}}
