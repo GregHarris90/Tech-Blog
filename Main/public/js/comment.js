@@ -20,3 +20,8 @@ const commentFormHandler = async (event) => {
         alert('Failed to create comment!');
     }
 };
+
+// Event listener for new post button
+document
+    .querySelector('.new-post-form')
+    .addEventListener('submit', newFormHandler);

@@ -2,7 +2,25 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// CREATE NEW BLOG POST
+// GET ALL ROUTE FOR COMMENTS
+router.get('/', async (req, res) => {
+    try {
+        const commentData = await Comment.findAll({
+            attributes: ['id', 'comment'],
+            order: [
+                ['date_created', 'DESC']
+            ],
+        });
+
+        const posts = commentData.map((post) => post.get({ plain: true }));
+
+        res.render('homepage', { posts, logged_in: req.session.logged_in });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+// CREATE NEW COMMENT POST
 router.post('/', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.create({
@@ -16,7 +34,7 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-// DELETE BLOG POST
+// DELETE COMMENT POST
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.destroy({
