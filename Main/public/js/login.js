@@ -1,3 +1,4 @@
+// LOGIN FORM HANDLER
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -22,6 +23,7 @@ const loginFormHandler = async (event) => {
     }
 };
 
+// Event listener for login button
 document
     .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
