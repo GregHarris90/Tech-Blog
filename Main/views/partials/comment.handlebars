@@ -1,0 +1,13 @@
+<div>
+    {{#each this}}
+    <h4>COMMENT:</h4>
+    <section>
+        <div>
+            <p>{{comment.comment}}</p>
+        </div>
+        <div>
+            <p>Created by {{user.username}} on {{format_date blog.date_created}}</p>
+        </div>
+    </section>
+    {{/each}}
+</div>

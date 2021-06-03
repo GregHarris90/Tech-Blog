@@ -1,8 +1,8 @@
-// BLOG FORM POST HANDLER
+// BLOG POST FORM HANDLER
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    // Collect values from the login form
+    // Collect values from the blog post form
     const title = document.querySelector('#blog-title').value.trim();
     const post = document.querySelector('#blog-post').value.trim();
 
